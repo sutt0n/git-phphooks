@@ -30,7 +30,7 @@
 				case "blue":
 					$colorCode = "[34m";
 					break;
-					
+					 
 				case "red":
 					$colorCode = "[31m";
 					break;
