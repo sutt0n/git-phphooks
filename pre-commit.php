@@ -19,7 +19,7 @@
 		$check = "HEAD";
 	}
 	
-	exec("git diff-index --cached --name-status $against | egrep '^(A|M)' | awk '{print $2;}'", $lines);
+	exec("git diff-index --cached --name-status $check | egrep '^(A|M)' | awk '{print $2;}'", $lines);
 	
 	print_r($lines);
 	
