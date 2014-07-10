@@ -33,7 +33,7 @@
 			$dtNow = new \DateTime("NOW", new \DateTimeZone("America/Chicago"));
 			
 			$debug = $colorCode;
-			$debug.= "[DEBUG] [";
+			$debug.= " [DEBUG] [";
 			$debug.= $dtNow->format("Y-m-d H:i:s") . "] :: ";
 			$debug.= $input;
 			$debug.= "\e[0m";
