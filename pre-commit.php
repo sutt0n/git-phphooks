@@ -65,25 +65,18 @@
 			// new files: 				New Text Document.txt | 0
 			// deleted files:			New Text Document.txt | 0		
 			
-			print_r( $lines );
-			die();
-			
 			foreach( $lines as $line ) {
 				
-				$line = trim( $line );
-				$arr = explode("|", $line);
+				// Only looking at additions
+				if( $line[0] != "+" ) {
+					continue;
+				}
 				
-				$file = trim( $arr[0] );
-				$changes = trim( $arr[1] ); 
-				
-				$this->debug("Scanning " . $file . "'s changes for for debug code.");
-				
-				if( $this->hasDebugCode( $file ) ) {
-					$this->debug("Debug code found on line " . $this->lastLine . " in " . $file .".", "red");
-					$exitCode = 1;
-				} 
+				echo $line . "\n";
 			
 			}
+			
+			die();
 			
 			exit( $exitCode );
 		
