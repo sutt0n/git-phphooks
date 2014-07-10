@@ -19,7 +19,7 @@
 		$check = "HEAD";
 	}
 	
-	exec('git diff-index --cached --name-status '. $check .' | grep "^(A|M)" | gawk "{print $2;}"', $lines);
+	exec('git diff-index --cached --name-status '. $check, $lines);
 	
 	print_r($lines);
 	
