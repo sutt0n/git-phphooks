@@ -21,7 +21,7 @@
 			$dtNow = new \DateTime("NOW", new \DateTimeZone("America/Chicago"));
 			
 			$debug = "[DEBUG] [";
-			$debug.= $dtNow->format("t") . "] :: ";
+			$debug.= $dtNow->format("Y-m-d H:i:s") . "] :: ";
 			$debug.= $input;
 			$debug.= "\n";
 			
