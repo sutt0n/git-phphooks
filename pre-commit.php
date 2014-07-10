@@ -11,7 +11,7 @@
 	
 	exec('git diff --name-only', $lines);
 	
-	echo $lines;
+	print_r($lines);
 	
 	foreach( $lines as $line ) {
 	
