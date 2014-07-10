@@ -42,7 +42,7 @@
 
 			exec('echo -e "'. $debug .'"', $result);
 			
-			echo $result;
+			echo implode("", $result);
 		
 		}
 		
