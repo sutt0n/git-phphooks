@@ -1,6 +1,5 @@
 <?php
 
-	flush();
 	echo "\e[31mLint check of JSON object failed. Your push was not accepted.\e[0m";
 	die();
 
