@@ -78,10 +78,10 @@
 				$file = trim($file);
 				$file = preg_replace("((A|M)\s)", "", $file);
 				
-				$this->debug("Scanning file " . $file . ". for debug code.");
+				$this->debug("Scanning file " . $file . " for debug code.");
 				
 				if( $this->hasDebugCode( $file ) ) {
-					$this->debug("DEBUG CODE FOUND.");
+					$this->debug("Debug code found on line " . $this->lastLine . " in " . $file .".", "red");
 				}
 			
 			}
@@ -124,6 +124,7 @@
 			fclose( $fp );
 			
 			// Set the last line.
+			$this->lastLine = $line;
 			
 			return $return;
 			
