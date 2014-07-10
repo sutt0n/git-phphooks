@@ -104,7 +104,7 @@
 			while( !feof( $fp ) && ( $line = fgets( $fp ) ) !== false ) {
 				foreach( $search as $pattern ) {
 					
-					if( strpos( $line, $pattern ) !== -1 ) {
+					if( strpos( $line, $pattern ) !== false ) {
 						$return = true;
 						break;
 					}
