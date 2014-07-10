@@ -57,24 +57,31 @@
 		
 		protected function execute() {
 			
-			$output = null;
+			$lines = null;
 			
-			exec('git diff-index --cached --stat HEAD', $output);
+			exec('git diff HEAD | cat', $lines);
 			
-			print_r( $output );
+			// existing files changed:	pre-commit.php | 22 ++++++----------------\
+			// new files: 				New Text Document.txt | 0
+			// deleted files:			New Text Document.txt | 0		
+			
+			print_r( $lines );
 			die();
 			
-			foreach( $files as $file ) {
-			
-				$file = trim($file);
-				$file = preg_replace("((A|M)\s)", "", $file);
+			foreach( $lines as $line ) {
 				
-				$this->debug("Scanning file " . $file . " for debug code.");
+				$line = trim( $line );
+				$arr = explode("|", $line);
+				
+				$file = trim( $arr[0] );
+				$changes = trim( $arr[1] ); 
+				
+				$this->debug("Scanning " . $file . "'s changes for for debug code.");
 				
 				if( $this->hasDebugCode( $file ) ) {
 					$this->debug("Debug code found on line " . $this->lastLine . " in " . $file .".", "red");
 					$exitCode = 1;
-				}
+				} 
 			
 			}
 			
