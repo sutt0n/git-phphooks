@@ -31,11 +31,11 @@
 		
 			$dtNow = new \DateTime("NOW", new \DateTimeZone("America/Chicago"));
 			
-			$debug = "\x1B" . $colorCode;
+			$debug = "\\e" . $colorCode;
 			$debug.= "[DEBUG] ";
 			$debug.= $dtNow->format("Y-m-d H:i:s") . " :: "; 
 			$debug.= $input;
-			$debug.= "\x1B[0m";
+			$debug.= "\\e[0m";
 			$debug.= "\n";
 
 			echo $debug;
