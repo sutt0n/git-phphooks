@@ -95,7 +95,7 @@
 		protected function hasDebugCode( $filename ) {
 		
 			// Make sure we're not scanning ourselves
-			echo $filename . " : " . $_SERVER['SCRIPT_FILENAME'];
+			echo $filename . " : " . end(explode("/", $_SERVER['SCRIPT_FILENAME']));
 			if( $filename == end(explode("/", $_SERVER['SCRIPT_FILENAME'])) ) {
 				return false;
 			}
