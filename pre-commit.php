@@ -1,6 +1,6 @@
 <?php
 
-	echo "\033[1mE\033[0m";
+	echo "\033[34mE\033[0m";
 	die();
 
 	$precommit = new precommit();
