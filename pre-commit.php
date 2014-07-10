@@ -71,7 +71,7 @@
 			foreach( $lines as $line ) {
 			
 				$line = trim($line);
-				$line = preg_replace("((A|M)\s)[1]", "", $line);
+				$line = preg_replace("((A|M)\s)", "", $line);
 				
 				$this->debug( "File: " . $line );
 			
