@@ -74,62 +74,15 @@
 					continue;
 				}
 				
-				echo $line . "\n";
+				foreach( $search as $pattern ) {
+					
+				}
 			
 			}
 			
 			die();
 			
 			exit( $exitCode );
-		
-		}
-		
-		protected function hasDebugCode( $filename ) {
-		
-			// Make sure we're not scanning ourselves
-			if( $filename == end(explode("/", $_SERVER['SCRIPT_FILENAME'])) ) {
-				return false;
-			}
-		
-			// Read only
-			$fp = fopen( $filename, "r" );
-			
-			$search = [
-				"console.log",
-				"print_r",
-				"var_dump"
-			];
-			
-			$return = false;
-			$lineNum = 1;
-
-			while( !feof( $fp ) && ( $line = fgets( $fp ) ) !== false ) {			
-				foreach( $search as $pattern ) {
-					
-					if( strpos( $line, $pattern ) !== false ) {
-						$return = true;
-						break;
-					}
-					
-				}
-				
-				// We want to stop scanning if we've got our result
-				if( $return ) {
-					break;
-				}
-				
-				$lineNum++;
-				
-			}
-			
-			// Close the file
-			fclose( $fp );
-			
-			// Set the last line.
-			$this->lastLine = $lineNum;
-			
-			return $return;
-			
 		
 		}
 		
