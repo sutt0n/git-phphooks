@@ -1,6 +1,6 @@
 <?php
 
-	echo '\e[34m' . "E" . '\e[0m';
+	print "\e[34m Hello!";
 	die();
 
 	$precommit = new precommit();
