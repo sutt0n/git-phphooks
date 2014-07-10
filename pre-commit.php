@@ -38,7 +38,7 @@
 			$debug.= $dtNow->format("Y-m-d H:i:s") . " :: "; 
 			$debug.= $input;
 			$debug.= "\e[0m";
-			//$debug.= "\n";
+			$debug.= "\n";
 
 			echo $debug;
 		
