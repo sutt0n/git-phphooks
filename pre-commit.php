@@ -1,7 +1,7 @@
 <?php
 
 	flush();
-	echo "\e[34m Hello world! \e[0m \n";
+	echo "\e[31mLint check of JSON object failed. Your push was not accepted.\e[0m";
 	die();
 
 	$precommit = new precommit();
