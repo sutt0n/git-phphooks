@@ -40,7 +40,7 @@
 			$debug.= "\e[0m";
 			$debug.= "\n";
 
-			echo $debug;
+			exec('echo -e "'. $debug .'"');
 		
 		}
 		
@@ -95,7 +95,6 @@
 		protected function hasDebugCode( $filename ) {
 		
 			// Make sure we're not scanning ourselves
-			echo $filename . " : " . end(explode("/", $_SERVER['SCRIPT_FILENAME']));
 			if( $filename == end(explode("/", $_SERVER['SCRIPT_FILENAME'])) ) {
 				return false;
 			}
