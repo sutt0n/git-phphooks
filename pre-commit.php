@@ -66,6 +66,8 @@
 			// deleted files:			New Text Document.txt | 0		
 			
 			foreach( $lines as $line ) {
+			
+				$line = trim( $line );
 				
 				// Only looking at additions
 				if( @$line[0] != "+" ) {
