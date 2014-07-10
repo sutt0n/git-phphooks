@@ -40,9 +40,7 @@
 			$debug.= "\e[0m";
 			$debug.= "\n";
 
-			exec('echo -e "'. $debug .'"', $result);
-			
-			echo implode("", $result);
+			echo $debug;
 		
 		}
 		
