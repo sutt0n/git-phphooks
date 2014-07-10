@@ -1,6 +1,6 @@
 <?php
 
-	$output = [];
+	$lines = [];
 	$status = 0;
 	
 	$debug = [
@@ -10,6 +10,8 @@
 	];
 	
 	exec('git diff --name-only', $lines);
+	
+	//exec('git rev-parse --verify HEAD 2> /dev/null', $output);
 	
 	print_r($lines);
 	
