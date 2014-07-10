@@ -19,7 +19,7 @@
 		 * To be overridden
 		 */
 		protected function execute() {
-		}
+		} 
 	
 		protected function debug( $input, $color = "blue" ) {
 		
