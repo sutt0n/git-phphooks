@@ -38,7 +38,7 @@
 			$debug.= $dtNow->format("Y-m-d H:i:s") . " :: "; 
 			$debug.= $input;
 			$debug.= "\e[0m";
-			$debug.= "\n";
+			//$debug.= "\n";
 
 			echo $debug;
 		
@@ -73,6 +73,8 @@
 			exec('git diff-index --cached --name-status '. $check, $files);
 			
 			$exitCode = 0;
+			
+			$this->debug("Beginning scan of files to commit.");
 			
 			foreach( $files as $file ) {
 			
