@@ -33,7 +33,7 @@
 			
 			$debug = "\e" . $colorCode;
 			$debug.= "[DEBUG] ";
-			$debug.= $dtNow->format("Y-m-d H:i:s") . " :: "; 
+			$debug.= $dtNow->format("Y-m-d H:i:s") . " :: ";
 			$debug.= $input;
 			$debug.= "\e[0m";
 			$debug.= "\n";
