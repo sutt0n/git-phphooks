@@ -2,8 +2,6 @@
 
 	$precommit = new precommit();
 
-	////////
-
 	class hook {
 	
 		public function __construct() {
