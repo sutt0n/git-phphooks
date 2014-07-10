@@ -22,11 +22,11 @@
 			
 			switch( $color ) {
 				case "blue":
-					$colorCode = "\e[1;34m";
+					$colorCode = "[1;34m";
 					break;
 					
 				case "red":
-					$colorCode = "\e[1;31m";
+					$colorCode = "[1;31m";
 					break;
 			}
 		
@@ -36,7 +36,7 @@
 			$debug.= "[DEBUG] [";
 			$debug.= $dtNow->format("Y-m-d H:i:s") . "] :: ";
 			$debug.= $input;
-			$debug.= "\e[0m";
+			$debug.= "[0m";
 			$debug.= "\n";
 
 			echo $debug;
