@@ -13,7 +13,7 @@
 	
 	foreach( $lines as $line ) {
 	
-		echo $line;
+		echo $line; 
 	
 	}
 	
