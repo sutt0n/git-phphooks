@@ -70,8 +70,8 @@
 			
 			foreach( $lines as $line ) {
 			
-				//$line = trim($line);
-				//$line = preg_replace("((A|M)\s\t)[1]", "", $line);
+				$line = trim($line);
+				$line = preg_replace("((A|M)\s)[1]", "", $line);
 				
 				$this->debug( "File: " . $line );
 			
