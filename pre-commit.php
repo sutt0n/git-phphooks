@@ -49,28 +49,11 @@
 
 	class precommit extends hook {
 	
-		protected $lines = null;
-		protected $search = null;
-		
+		protected $lines = null;		
 		protected $lastLine = null;
 	
 		public function __construct() {
 			parent::__construct();
-			$this->setDebugArray();
-		}
-		
-		protected function setDebugArray( $arr = [] ) {
-			if( empty( $arr ) ) {
-				
-				$this->search = [
-					"console.log",
-					"print_r",
-					"var_dump"
-				];
-				
-			} else {
-				$this->search = $arr;
-			}
 		}
 		
 		protected function execute() {
@@ -110,13 +93,14 @@
 			// Read only
 			$fp = fopen( $filename, "r" );
 			
-			$search = $this->search;
+			$search = [
+				"console.log",
+				"print_r",
+				"var_dump"
+			];
 			$return = false;
 			$line = 1;
-			
-			print_r( $search );
-			die();
-			
+
 			while( !feof( $fp ) && ( $line = fgets( $fp ) ) !== false ) {
 				foreach( $search as $pattern ) {
 					
