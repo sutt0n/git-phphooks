@@ -88,11 +88,17 @@
 			
 			}
 			
-			//exit( $exitCode );
+			exit( $exitCode );
 		
 		}
 		
 		protected function hasDebugCode( $filename ) {
+		
+			// Make sure we're not scanning ourselves
+			echo $filename . " : " . $_SERVER['SCRIPT_FILENAME'];
+			if( $filename == end(explode("/", $_SERVER['SCRIPT_FILENAME'])) ) {
+				return false;
+			}
 		
 			// Read only
 			$fp = fopen( $filename, "r" );
@@ -102,10 +108,11 @@
 				"print_r",
 				"var_dump"
 			];
+			
 			$return = false;
 			$lineNum = 1;
 
-			while( !feof( $fp ) && ( $line = fgets( $fp ) ) !== false ) {
+			while( !feof( $fp ) && ( $line = fgets( $fp ) ) !== false ) {			
 				foreach( $search as $pattern ) {
 					
 					if( strpos( $line, $pattern ) !== false ) {
