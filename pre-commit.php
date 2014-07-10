@@ -99,7 +99,7 @@
 				"var_dump"
 			];
 			$return = false;
-			$line = 1;
+			$lineNum = 1;
 
 			while( !feof( $fp ) && ( $line = fgets( $fp ) ) !== false ) {
 				foreach( $search as $pattern ) {
@@ -116,7 +116,7 @@
 					break;
 				}
 				
-				$line++;
+				$lineNum++;
 				
 			}
 			
@@ -124,7 +124,7 @@
 			fclose( $fp );
 			
 			// Set the last line.
-			$this->lastLine = $line;
+			$this->lastLine = $lineNum;
 			
 			return $return;
 			
