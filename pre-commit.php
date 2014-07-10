@@ -21,7 +21,7 @@
 			switch( $color ) {
 				default:
 				case "blue":
-					$colorCode = "[34m";
+					$colorCode = "[31m";
 					break;
 					
 				case "red":
@@ -31,11 +31,11 @@
 		
 			$dtNow = new \DateTime("NOW", new \DateTimeZone("America/Chicago"));
 			
-			$debug = "\\e" . $colorCode;
+			$debug = "\e" . $colorCode;
 			$debug.= "[DEBUG] ";
 			$debug.= $dtNow->format("Y-m-d H:i:s") . " :: "; 
 			$debug.= $input;
-			$debug.= "\\e[0m";
+			$debug.= "\e[0m";
 			$debug.= "\n";
 
 			echo $debug;
