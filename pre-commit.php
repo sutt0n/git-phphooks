@@ -1,6 +1,8 @@
 <?php
 
 	$precommit = new precommit();
+	
+	print_r("Hi");
 
 	////////
 
@@ -32,11 +34,11 @@
 		
 			$dtNow = new \DateTime("NOW", new \DateTimeZone("America/Chicago"));
 			
-			$debug = $colorCode;
+			$debug = "\e$colorCode";
 			$debug.= " [DEBUG] [";
 			$debug.= $dtNow->format("Y-m-d H:i:s") . "] :: ";
 			$debug.= $input;
-			$debug.= "[0m";
+			$debug.= "\e[0m";
 			$debug.= "\n";
 
 			echo $debug;
