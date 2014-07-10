@@ -40,7 +40,9 @@
 			$debug.= "\e[0m";
 			$debug.= "\n";
 
-			exec('echo -e "'. $debug .'"');
+			exec('echo -e "'. $debug .'"', $result);
+			
+			echo $result;
 		
 		}
 		
