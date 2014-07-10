@@ -114,6 +114,9 @@
 			$return = false;
 			$line = 1;
 			
+			print_r( $search );
+			die();
+			
 			while( !feof( $fp ) && ( $line = fgets( $fp ) ) !== false ) {
 				foreach( $search as $pattern ) {
 					
