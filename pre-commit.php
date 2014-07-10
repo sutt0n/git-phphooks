@@ -68,7 +68,7 @@
 			foreach( $lines as $line ) {
 				
 				// Only looking at additions
-				if( $line[0] != "+" ) {
+				if( @$line[0] != "+" ) {
 					continue;
 				}
 				
