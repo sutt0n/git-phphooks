@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 	$precommit = new precommit();
 
