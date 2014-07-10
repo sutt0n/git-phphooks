@@ -56,6 +56,7 @@
 	
 		public function __construct() {
 			parent::__construct();
+			$this->setDebugArray();
 		}
 		
 		protected function setDebugArray( $arr = [] ) {
