@@ -1,5 +1,8 @@
 <?php
 
+	echo "\033[1mE\033[0m";
+	die();
+
 	$precommit = new precommit();
 	
 	print_r("Hi");
@@ -23,6 +26,7 @@
 			$colorCode = "";
 			
 			switch( $color ) {
+				default:
 				case "blue":
 					$colorCode = "[34m";
 					break;
@@ -34,9 +38,9 @@
 		
 			$dtNow = new \DateTime("NOW", new \DateTimeZone("America/Chicago"));
 			
-			$debug = "\e$colorCode";
-			$debug.= " [DEBUG] [";
-			$debug.= $dtNow->format("Y-m-d H:i:s") . "] :: ";
+			$debug = "\e" . $colorCode;
+			$debug.= "[DEBUG] ";
+			$debug.= $dtNow->format("Y-m-d H:i:s") . " :: ";
 			$debug.= $input;
 			$debug.= "\e[0m";
 			$debug.= "\n";
@@ -73,6 +77,8 @@
 			
 			exec('git diff-index --cached --name-status '. $check, $files);
 			
+			$exitCode = 0;
+			
 			foreach( $files as $file ) {
 			
 				$file = trim($file);
@@ -82,9 +88,12 @@
 				
 				if( $this->hasDebugCode( $file ) ) {
 					$this->debug("Debug code found on line " . $this->lastLine . " in " . $file .".", "red");
+					$exitCode = 1;
 				}
 			
 			}
+			
+			exit( $exitCode );
 		
 		}
 		
