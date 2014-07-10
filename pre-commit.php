@@ -15,6 +15,8 @@
 		}
 	
 		protected function debug( $input, $color = "blue" ) {
+	
+			// *Note: Colors don't work atm... I'll figure it out later.
 		
 			$colorCode = "";
 			
@@ -55,24 +57,12 @@
 		
 		protected function execute() {
 			
-			$files = [];
-			$status = 0;
-			$check = "";
-			$rc = 0;
+			$output = null;
 			
-			exec('git rev-parse --verify HEAD 2> /dev/null', $output, $rc);
+			exec('git diff-index --cached --stat HEAD', $output);
 			
-			if( $rc ) {
-				$check = "4b825dc642cb6eb9a060e54bf8d69288fbee4904";
-			} else {
-				$check = "HEAD";
-			}
-			
-			exec('git diff-index --cached --name-status '. $check, $files);
-			
-			$exitCode = 0;
-			
-			$this->debug("Beginning scan of files to commit.");
+			print_r( $output );
+			die();
 			
 			foreach( $files as $file ) {
 			
